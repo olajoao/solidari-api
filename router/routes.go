@@ -1,42 +1,17 @@
 package router
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"github.com/olajoao/solidari-api/handler"
 )
 
 func initializeRoutes(router *gin.Engine) {
 	v1 := router.Group("/api/v1")
 	{
-		v1.GET("/donations", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"message": "GET Donations",
-			})
-		})
-
-		v1.GET("/donation/:id", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"message": "GET Donation",
-			})
-		})
-
-		v1.POST("/donation", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"message": "CREATE single donation",
-			})
-		})
-
-		v1.PUT("/donation/:id", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"message": "EDIT single donation",
-			})
-		})
-
-		v1.DELETE("/donation/:id", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"message": "DELETE Donation",
-			})
-		})
+		v1.GET("/donations", handler.ListDonationsHandler)
+		v1.GET("/donation/:id", handler.ShowDonationHandler)
+		v1.POST("/donation", handler.CreateDonationHandler)
+		v1.PUT("/donation/:id", handler.EditDonationHandler)
+		v1.DELETE("/donation/:id", handler.DeleteDonationHandler)
 	}
 }
