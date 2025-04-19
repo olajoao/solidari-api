@@ -5,12 +5,12 @@ import (
 )
 
 func Initialize() {
+	// Initialize router
 	router := gin.Default()
-	router.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{"message": "pong"})
-	})
-	router.GET("/donation", func(c *gin.Context) {
-		c.JSON(200, gin.H{"donations": "teste 1"})
-	})
+
+	// Initialize Routes
+	initializeRoutes(router)
+
+	// Run the server
 	router.Run(":8080")
 }
