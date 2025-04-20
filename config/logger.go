@@ -27,34 +27,34 @@ func NewLogger(prefix string) *Logger {
 	}
 }
 
-func (l *Logger) Debug(v ...interface{}) {
+func (l *Logger) Debug(v ...any) {
 	l.debug.Println(v...)
 }
 
-func (l *Logger) Info(v ...interface{}) {
-	l.debug.Println(v...)
+func (l *Logger) Info(v ...any) {
+	l.info.Println(v...)
 }
 
-func (l *Logger) Warning(v ...interface{}) {
-	l.debug.Println(v...)
+func (l *Logger) Warning(v ...any) {
+	l.warning.Println(v...)
 }
 
-func (l *Logger) Error(v ...interface{}) {
-	l.debug.Println(v...)
+func (l *Logger) Error(v ...any) {
+	l.err.Println(v...)
 }
 
-func (l *Logger) Debugf(format string, v ...interface{}) {
+func (l *Logger) Debugf(format string, v ...any) {
 	l.debug.Printf(format, v...)
 }
 
-func (l *Logger) Infof(format string, v ...interface{}) {
-	l.debug.Printf(format, v...)
+func (l *Logger) Infof(format string, v ...any) {
+	l.info.Printf(format, v...)
 }
 
-func (l *Logger) Warningf(format string, v ...interface{}) {
-	l.debug.Printf(format, v...)
+func (l *Logger) Warningf(format string, v ...any) {
+	l.warning.Printf(format, v...)
 }
 
-func (l *Logger) Errorf(format string, v ...interface{}) {
-	l.debug.Printf(format, v...)
+func (l *Logger) Errorf(format string, v ...any) {
+	l.err.Printf(format, v...)
 }

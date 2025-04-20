@@ -1,17 +1,17 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/olajoao/solidari-api/config"
 	"github.com/olajoao/solidari-api/router"
 )
 
+var logger *config.Logger
+
 func main() {
-	// Initialize Configs
+	logger = config.GetLogger("main")
 	err := config.Init()
 	if err != nil {
-		fmt.Println(err)
+		logger.Errorf("Main Initialize error: %v", err)
 		return
 	}
 
