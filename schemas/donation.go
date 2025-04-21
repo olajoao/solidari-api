@@ -21,6 +21,6 @@ type DonationResponse struct {
 	DeletedAt   time.Time `json:"deleted_at,omitempty"`
 	Title       string    `json:"title"`
 	Description string    `json:"description"`
-	Avatar      string    `json:"avatar"`
+	Avatar      string    `json:"avatar,omitempty"`
 	Location    string    `json:"location"`
 }
